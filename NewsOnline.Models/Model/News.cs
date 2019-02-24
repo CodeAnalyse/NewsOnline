@@ -19,5 +19,9 @@ namespace NewsOnline.Models.Model
 		public int Publication { get; set; }
 
 		public int Category { get; set; }
+
+		public string PublicationName { get; set; }
+
+		public string CategoryName { get; set; }
 	}
 }

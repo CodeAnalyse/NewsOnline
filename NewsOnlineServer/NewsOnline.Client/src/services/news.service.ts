@@ -52,11 +52,11 @@ export class NewsService {
     return this.http.post(environment.apiUrl + 'News/SaveNews', formData);
   }
 
-  listNews(pageNumber, categoryId = 0, countryId = 0, stateId = 0, cityId=0, publisherId = 0) {
+  listNews(pageNumber, categoryId = 0, countryId = 0, stateId = 0, cityId=0, publisherId = 0, userId = 0) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Access-Control-Allow-Origin', '*');
-    return this.http.get(environment.apiUrl + 'News/GetNews?pageNumber='+pageNumber+'&categoryId='+categoryId+'&countryId='+countryId+'&stateId='+stateId+'&cityId='+cityId + '&publicationId='+publisherId, { headers: headers });
+    return this.http.get(environment.apiUrl + 'News/GetNews?pageNumber=' + pageNumber + '&categoryId=' + categoryId + '&countryId=' + countryId + '&stateId=' + stateId + '&cityId=' + cityId + '&publicationId=' + publisherId + '&userId=' + userId, { headers: headers });
   }
 
   listNewsById(id) {

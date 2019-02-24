@@ -15,7 +15,7 @@ namespace NewsOnline.Core.Repository
 
 		void DeleteNews(News category);
 
-		List<News> GetNews(int pageNumber, int categoryId, int countryId, int stateId, int cityId, int publicationId);
+		List<News> GetNews(int pageNumber, int categoryId, int countryId, int stateId, int cityId, int publicationId, int userId);
 
 		News GetNewsById(int Id);
 	}

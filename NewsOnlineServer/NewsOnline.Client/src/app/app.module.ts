@@ -80,6 +80,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
 
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { NewsDetailsComponent } from './views/news-details/news-details.component';
+import { NewsManagementComponent } from './views/news-management/news-management.component';
 enableProdMode();
 @NgModule({
   imports: [
@@ -128,7 +129,8 @@ enableProdMode();
     PublisherComponent,
     NewsComponent,
     NewsListComponent,
-    NewsDetailsComponent
+    NewsDetailsComponent,
+    NewsManagementComponent
   ],  
   exports: [  
     MatButtonModule,  

@@ -33,6 +33,12 @@ export const navItems = [
     Type: 'Admin,Publisher'
   },
   {
+    name: 'News Management',
+    url: '/news-management',
+    icon: 'fa fa-newspaper-o',
+    Type: 'Admin,Publisher'
+  },
+  {
     name: 'Read News',
     url: '/readnews',
     icon: 'fa fa-newspaper-o',

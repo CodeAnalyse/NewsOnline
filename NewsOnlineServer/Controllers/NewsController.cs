@@ -85,9 +85,9 @@ namespace NewsOnlineServer.Controllers
 			return Ok();
 		}
 
-		public IHttpActionResult GetNews(int pageNumber, int categoryId, int countryId, int stateId, int cityId, int publicationId)
+		public IHttpActionResult GetNews(int pageNumber, int categoryId, int countryId, int stateId, int cityId, int publicationId, int userId)
 		{
-			return Ok(newsRepository.GetNews(pageNumber, categoryId, countryId, stateId, cityId, publicationId));
+			return Ok(newsRepository.GetNews(pageNumber, categoryId, countryId, stateId, cityId, publicationId, userId));
 		}
 
 		public IHttpActionResult GetNewsById(int id)

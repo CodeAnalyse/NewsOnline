@@ -14,7 +14,8 @@ import { CategoryComponent } from './views/category/category.component';
 import { PublisherComponent } from './views/publisher/publisher.component';
 import { NewsComponent } from './views/news/news.component';
 import { NewsListComponent } from './views/news-list/news-list.component';
-import { NewsDetailsComponent } from './views/news-details/news-details.component'; 
+import { NewsDetailsComponent } from './views/news-details/news-details.component';
+import { NewsManagementComponent } from './views/news-management/news-management.component';
 
 export const routes: Routes = [
   {
@@ -118,6 +119,14 @@ export const routes: Routes = [
       {
         path: 'news',
         component: NewsComponent,
+        data: {
+          title: 'Publish News'
+        }
+      },
+
+      {
+        path: 'news-management',
+        component: NewsManagementComponent,
         data: {
           title: 'Publish News'
         }

@@ -62,7 +62,9 @@ namespace NewsOnline.Implementation.Repository
 						Title = row.Field<string>("Title"),
 						BannerUrl = row.Field<string>("BannerUrl"),
 						Body = row.Field<string>("Body"),
-						Id = row.Field<int>("Id")
+						Id = row.Field<int>("Id"),
+						PublicationName = row.Field<string>("Publication"),
+						CategoryName = row.Field<string>("Category")
 					};
 				}
 			}
@@ -70,30 +72,34 @@ namespace NewsOnline.Implementation.Repository
 			return news;
 		}
 
-		public List<News> GetNews(int pageNumber, int categoryId, int countryId, int stateId, int cityId, int publicationId)
+		public List<News> GetNews(int pageNumber, int categoryId, int countryId, int stateId, int cityId, int publicationId, int userId)
 		{
 			string sql = @"SELECT N.[Id]
 				  ,[Title]
 				  ,[PublishDate]
 				  ,[BannerUrl]
 				  ,[Body]
-				  ,Publication
 				  ,Publication = P.name
-				  ,Category = C.name
+				  ,Category = C.name,
+				  P.UserId,
+				  U.username
 			  FROM [News] N
 			  INNER JOIN Category C ON C.Id = N.Category
 			  INNER JOIN Publisher P ON P.Id = N.Publication
+			  INNER JOIN [User] U ON P.UserId = U.Id
 			  Where (@category = 0 OR N.Category = @category)
 				AND (@country = 0 OR P.Country = @country)
 				AND (@state = 0 OR P.[State] = @state)
 				AND (@city = 0 OR P.City = @city)
 				AND (@publicationId = 0 OR P.Id = @publicationId)
+				AND (@userId = 0 OR P.UserId = @userId)
 			  ORDER BY PublishDate DESC";
 			DataSet ds = _db.GetDataSetFromSql(sql, new SqlParameter("@category", categoryId),
 				new SqlParameter("@country", countryId),
 				new SqlParameter("@state", stateId),
 				new SqlParameter("@city", cityId),
-				new SqlParameter("@publicationId", publicationId));
+				new SqlParameter("@publicationId", publicationId),
+				new SqlParameter("@userId", userId));
 			int start = (pageNumber - 1) * 10;
 			int end = (10 * pageNumber);
 			List<News> news = new List<News>();
@@ -107,7 +113,9 @@ namespace NewsOnline.Implementation.Repository
 						Title = row.Field<string>("Title"),
 						BannerUrl = row.Field<string>("BannerUrl"),
 						Body = row.Field<string>("Body"),
-						Id = row.Field<int>("Id")
+						Id = row.Field<int>("Id"),
+						PublicationName = row.Field<string>("Publication"),
+						CategoryName = row.Field<string>("Category")
 					});
 				}
 			}
