@@ -28,7 +28,7 @@ export class NewsManagementComponent implements OnInit {
 
   loadNews(pageNumber) {
     this.isLoading = true;
-    this.newsService.listNews(pageNumber).pipe(catchError((error: any) => {
+    this.newsService.listNews(pageNumber, 0, 0, 0 , 0, 0, 1).pipe(catchError((error: any) => {
       //this.flashMessage.show("Error while saving feedback!!",  { cssClass: 'alert-danger', timeout: 3000 });
       alert("Error while getting data!!");
       throw error;

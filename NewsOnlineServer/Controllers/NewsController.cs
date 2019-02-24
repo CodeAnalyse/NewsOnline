@@ -1,5 +1,6 @@
 ﻿using NewsOnline.Common;
 using NewsOnline.Core.Repository;
+using NewsOnline.Models;
 using NewsOnline.Models.Model;
 using System;
 using System.Collections.Generic;
@@ -16,9 +17,20 @@ namespace NewsOnlineServer.Controllers
 {
 	public class NewsController : ApiController
 	{
+		private User CurrentUser
+		{
+			get
+			{
+				string token = Request.Headers.GetValues("Authorization").FirstOrDefault();
+				return userRepository.UserContext(token);
+			}
+		}
+
+		IUserRepository userRepository;
 		INewsRepository newsRepository;
 		public NewsController()
 		{
+			userRepository = UnityFactory.ResolveObject<IUserRepository>();
 			newsRepository = UnityFactory.ResolveObject<INewsRepository>();
 		}
 
@@ -87,6 +99,11 @@ namespace NewsOnlineServer.Controllers
 
 		public IHttpActionResult GetNews(int pageNumber, int categoryId, int countryId, int stateId, int cityId, int publicationId, int userId)
 		{
+			if(userId != 0)
+			{
+				userId = CurrentUser.Id;
+			}
+
 			return Ok(newsRepository.GetNews(pageNumber, categoryId, countryId, stateId, cityId, publicationId, userId));
 		}
 

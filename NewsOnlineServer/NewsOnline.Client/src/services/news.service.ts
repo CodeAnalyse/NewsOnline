@@ -3,13 +3,15 @@ import {Router} from '@angular/router';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { catchError, map } from 'rxjs/operators';
 import { environment } from '../environments/environment';
+import { UserService } from './user.service';
+
 //let localStorage = require('local-storage');
 
 
 @Injectable()
 export class NewsService {
   isSessionVaild = true;
-  constructor(private http: Http, public router: Router) {  }
+  constructor(private http: Http, public router: Router, public userService: UserService) {  }
 
   getHeaders(){
     let headers = new Headers();
@@ -53,9 +55,10 @@ export class NewsService {
   }
 
   listNews(pageNumber, categoryId = 0, countryId = 0, stateId = 0, cityId=0, publisherId = 0, userId = 0) {
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    headers.append('Access-Control-Allow-Origin', '*');
+    //let headers = new Headers();
+    //headers.append('Content-Type', 'application/json');
+    //headers.append('Access-Control-Allow-Origin', '*');
+    let headers = this.userService.getHeaders();
     return this.http.get(environment.apiUrl + 'News/GetNews?pageNumber=' + pageNumber + '&categoryId=' + categoryId + '&countryId=' + countryId + '&stateId=' + stateId + '&cityId=' + cityId + '&publicationId=' + publisherId + '&userId=' + userId, { headers: headers });
   }
 

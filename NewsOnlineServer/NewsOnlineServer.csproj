@@ -262,6 +262,7 @@
     <Content Include="NewsOnline.Client\src\app\views\login\login.component.html" />
     <Content Include="NewsOnline.Client\src\app\views\news-details\news-details.component.html" />
     <Content Include="NewsOnline.Client\src\app\views\news-list\news-list.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\news-management\news-management.component.html" />
     <Content Include="NewsOnline.Client\src\app\views\news\news.component.html" />
     <Content Include="NewsOnline.Client\src\app\views\notifications\alerts.component.html" />
     <Content Include="NewsOnline.Client\src\app\views\notifications\badges.component.html" />
@@ -400,6 +401,7 @@
     <Content Include="NewsOnline.Client\src\tsconfig.spec.json" />
     <Content Include="NewsOnline.Client\tsconfig.json" />
     <Content Include="NewsOnline.Client\tslint.json" />
+    <Content Include="NewsOnline.Client\src\app\views\news-management\news-management.component.scss" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -523,6 +525,8 @@
     <TypeScriptCompile Include="NewsOnline.Client\src\app\views\news-details\news-details.component.ts" />
     <TypeScriptCompile Include="NewsOnline.Client\src\app\views\news-list\news-list.component.spec.ts" />
     <TypeScriptCompile Include="NewsOnline.Client\src\app\views\news-list\news-list.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\news-management\news-management.component.spec.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\news-management\news-management.component.ts" />
     <TypeScriptCompile Include="NewsOnline.Client\src\app\views\news\news.component.spec.ts" />
     <TypeScriptCompile Include="NewsOnline.Client\src\app\views\news\news.component.ts" />
     <TypeScriptCompile Include="NewsOnline.Client\src\app\views\notifications\alerts.component.ts" />
