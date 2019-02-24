@@ -10,6 +10,7 @@ namespace NewsOnlineServer.Controllers
 		ICategoryRepository categoryRepository;
 		public CategoryController()
 		{
+
 			categoryRepository = UnityFactory.ResolveObject<ICategoryRepository>();
 		}
 
