@@ -1,0 +1,6 @@
+@media (min-width: 992px){
+::ng-deep .sidebar-lg-show.sidebar-fixed .main, .sidebar-lg-show.sidebar-fixed .app-footer, .sidebar-show.sidebar-fixed .main, .sidebar-show.sidebar-fixed .app-footer {
+    /*margin-left: 20px !important;*/
+    margin-top: 40px;
+}
+}

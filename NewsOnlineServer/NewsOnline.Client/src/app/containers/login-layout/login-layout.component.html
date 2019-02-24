@@ -1,0 +1,91 @@
+<button id="myBtn" style="display: none;"></button>
+<header class="header"> 
+    <div class="top_header">
+       <div class="container">
+       <div class="social_icon">
+            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+      </div>
+      <div *ngIf="!userCurrent" class="top_btn">	
+      <a href="#login">Log in</a>
+      <a href="#register">Sign up</a>
+      </div>
+      <div *ngIf="userCurrent" class="top_btn"><label style="color: #fff">Welcome {{userCurrent.Username}}</label>
+        
+          <a href="#" (click)="SignOut()">Sign out</a>
+      </div>
+      </div>
+    
+      <div class="top_btn" id="google_translate_element"></div>
+  
+      <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+      }
+      </script>
+    </div>
+    
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <div class="logo_wrap">
+      <div class="logo">
+                  <a href="#" title=""><img src="assets/images/logo.png" alt=""></a>
+              </div>
+      </div>
+<div class="navigation_wrap">		
+  <div class="container">
+      <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <nav class="navbar navbar-navigation">
+                      <!-- Brand and toggle get grouped for better mobile display -->
+                      <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                        </button>
+                      </div>
+                      <!-- Collect the nav links, forms, and other content for toggling -->
+                      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                          <div class="arrow-left"><i class="fa fa-angle-left" aria-hidden="true"></i></div>
+                          <ul class="nav navbar-nav">
+                              <li><a (click)="SelectCategory(0)" [class.active]="categoryId == 0">Home</a></li>
+                              <li *ngFor="let category of categories"><a (click)="SelectCategory(category.Id)" [class.active]="category.Id == categoryId" >{{category.Name}}</a></li>
+                          </ul>
+                          <div class="arrow-right"><i class="fa fa-angle-right" aria-hidden="true"></i></div>
+                      </div>
+              </nav>
+          </div>
+      </div>
+      </div>
+  </div>
+</header>
+
+
+
+<router-outlet></router-outlet>
+
+
+
+
+
+<footer class="footer home-page-footer">
+  <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-4 footer_copy_wrap">
+          <p class="copy_right">&copy; 2019 All rights reserved</p>
+        </div>
+        <div class="col-md-9 col-sm-8">
+          <div class="footer_link">
+            <ul>
+               <li><a href="#"> <i class="fa fa-user" aria-hidden="true"></i> For you</a></li>
+               <li><a href="#"> <i class="fa fa-globe" aria-hidden="true"></i> Headlines</a></li>
+               <li><a href="#"> <i class="fa fa-star" aria-hidden="true"></i> Favourites</a></li>
+               <li><a href="#"> <i class="fa fa-newspaper-o" aria-hidden="true"></i> Newsstand</a></li>
+             </ul>
+          </div>
+        </div>
+      </div>
+  </div>
+</footer>

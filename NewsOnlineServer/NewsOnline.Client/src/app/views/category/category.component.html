@@ -1,0 +1,59 @@
+<div>
+    <form (ngSubmit)="onSubmit()" class="example-form" [formGroup]="myForm">
+      <input type="hidden" formControlName="Id" />
+        <!-- Name -->
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Name" id="name"  name="name" formControlName="name" [errorStateMatcher]="matcher">
+            <mat-hint>Please enter your name</mat-hint>
+        
+            <!-- <mat-error *ngIf="name.hasError('required')">
+              This is <strong>required</strong> field
+            </mat-error> -->
+          </mat-form-field>
+          <p>
+          <mat-radio-group  class="example-full-width" formControlName="statusId">
+              <mat-radio-button matInput value="1">Enabled</mat-radio-button>
+              <br/>
+              <mat-radio-button matInput value="0">Disabled</mat-radio-button>
+            </mat-radio-group>
+          </p>
+          <mat-card-actions>
+              <button  mat-raised-button type="submit" [disabled]="myForm.invalid" color="primary">Submit</button>
+              <button style="margin-left: 5px" mat-raised-button type="button" (click)="resetForm()" >Reset</button>
+          </mat-card-actions>
+        </form>
+</div>
+<div style="margin-top: 20px;">
+<table mat-table [dataSource]="dataSource" class="table mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="StatusId">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell *matCellDef="let element">
+         <span> {{element.StatusId === 0 ? 'Disabled' : 'Enabled'}} </span>
+        </td>
+    </ng-container>
+  
+    
+  
+      <!-- Star Column -->
+      <ng-container matColumnDef="star" stickyEnd>
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+            <span> <button (click)="Edit(element)" class="btn btn-warning">Edit</button> </span>
+        </td>
+      </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

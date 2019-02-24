@@ -1,0 +1,74 @@
+<div *ngIf="userCurrent && userCurrent.StatusId == 0" class="ngx-editor">
+<h2 style="padding: 20px;">
+  User Need approval from Admin to publish news. 
+</h2>
+</div>
+<form *ngIf="userCurrent && userCurrent.StatusId == 1" (ngSubmit)="onSubmit()" class="example-form" [formGroup]="myForm">
+<p>
+        <input type="hidden" formControlName="Id" />
+<mat-form-field class="example-full-width">
+        <input matInput placeholder="Title" formControlName="title" name="title" [errorStateMatcher]="matcher">
+        <mat-hint>Please enter your news title</mat-hint>
+            <mat-error *ngIf="title == null || title == '' || title.hasError('required')">
+                This is <strong>required</strong> field
+              </mat-error>
+</mat-form-field>
+
+<mat-form-field>
+    <mat-select placeholder="Publication" formControlName="selectedPublication" name="selectedPublication">
+      <mat-option *ngFor="let publication of publications" [value]="publication.Id">
+        {{publication.Name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br/>
+  <mat-form-field>
+    <mat-select placeholder="Category" formControlName="selectedCategory" name="selectedCategory">
+      <mat-option *ngFor="let category of categories" [value]="category.Id">
+        {{category.Name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</p>
+<div class="ngx-editor" style="margin-bottom:10px;padding: 10px;margin-bottom: 20px;">
+            <div style="margin-bottom: 20px;">
+                   <button type="button" (click)="willUpload()" class="btn btn-primary" style="border-radius: 0px;" [ngClass]="{'active':uploadImageForBanner}">Upload Image</button>
+                   <button type="button" (click)="willUseUrl()" class="btn btn-primary" style="border-radius: 0px;" *ngIf="!uploadImageForBanner" [ngClass]="{'active':!uploadImageForBanner}">Enter Url</button>
+            </div>
+            <div *ngIf="uploadImageForBanner">
+                <span style="display: -webkit-inline-box;"><label style="font-weight: bold">Banner:</label>
+                <input style="margin-left: 10px;" accept="image/*" type="file" #fileInput id="file"
+                (change)="handleFileInput($event.target.files, $event)"></span>
+                <div style="text-align: center;" *ngIf="!finishCropImage && croppingDone">
+                    <image-cropper
+                        [imageChangedEvent]="imageChangedEvent"
+                        [maintainAspectRatio]="false"
+                        [aspectRatio]="4 / 3"
+                        format="png"
+                        (imageCropped)="imageCropped($event)"
+                        (imageLoaded)="imageLoaded()"
+                        (loadImageFailed)="mageFailed()">
+                    </image-cropper>
+                    <button class="btn btn-primary" (click)="finishCrop()">Cropping Done</button>
+                </div>
+                <div style="text-align: center" *ngIf="finishCropImage"><img [src]="croppedImage" /></div>
+            </div>
+            <div *ngIf="!uploadImageForBanner">
+                <p>
+                <mat-form-field style="width: 50%">
+                    <input matInput placeholder="BannerUrl" formControlName="BannerUrl" name="BannerUrl" />
+                    <mat-hint>Banner image Url can be entered</mat-hint>
+                </mat-form-field>
+                </p>
+            </div>
+        </div>
+<app-ngx-editor 
+[ngModelOptions]="{standalone: true}"
+[placeholder]="'Enter text here...'"
+ [imageEndPoint]="imageUrl" 
+ minHeight="500"
+ [spellcheck]="true" [(ngModel)]="htmlContent"></app-ngx-editor>
+ 
+ <mat-card-actions>
+     <button mat-raised-button style="margin-top: 20px;margin-bottom:10px;" type="submit" [disabled]="myForm.invalid" color="primary">Submit</button>
+    </mat-card-actions>
+</form>

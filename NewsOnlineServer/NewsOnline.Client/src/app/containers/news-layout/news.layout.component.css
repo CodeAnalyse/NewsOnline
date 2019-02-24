@@ -1,0 +1,5 @@
+::ng-deep .navbar-nav {
+    display: block;
+    flex-direction: column;
+    color: #fff;
+}

@@ -1,0 +1,601 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{68FE0530-02FF-4AAD-BFB6-1A7DCA7E3C25}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NewsOnlineServer</RootNamespace>
+    <AssemblyName>NewsOnlineServer</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=2.0.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.13\lib\net46\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="Dispenser, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dispenser.1.0.0\lib\net452\Dispenser.dll</HintPath>
+    </Reference>
+    <Reference Include="Dispenser.Hasher.Sha1, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dispenser.Hasher.Sha1.1.0.0\lib\net452\Dispenser.Hasher.Sha1.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.4.4.1\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.7\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.4\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Abstractions, Version=3.3.1.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.13\lib\net46\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Configuration, Version=5.2.5.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.13\lib\net46\Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.8.13.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.13\lib\net46\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception, Version=5.5.5.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.13\lib\net46\Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception.Configuration, Version=5.1.7.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.13\lib\net46\Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RegistrationByConvention, Version=2.1.9.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.13\lib\net46\Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ServiceLocation, Version=2.1.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.13\lib\net46\Unity.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Diagnostics.DiagnosticSource">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LocationController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\PublisherController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="NewsOnline.Client\.gitignore" />
+    <Content Include="NewsOnline.Client\karma.conf.js" />
+    <Content Include="NewsOnline.Client\protractor.conf.js" />
+    <Content Include="NewsOnline.Client\src\app\app.component.css" />
+    <Content Include="NewsOnline.Client\src\app\app.component.html" />
+    <Content Include="NewsOnline.Client\src\app\containers\default-layout\default-layout.component.html" />
+    <Content Include="NewsOnline.Client\src\app\containers\default-layout\default-layout.css" />
+    <Content Include="NewsOnline.Client\src\app\containers\login-layout\login-layout.component.css" />
+    <Content Include="NewsOnline.Client\src\app\containers\login-layout\login-layout.component.html" />
+    <Content Include="NewsOnline.Client\src\app\containers\news-layout\news-layout.component.html" />
+    <Content Include="NewsOnline.Client\src\app\containers\news-layout\news.layout.component.css" />
+    <Content Include="NewsOnline.Client\src\app\views\admindashboard\admindashboard.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\base\cards.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\base\carousels.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\base\collapses.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\base\forms.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\base\paginations.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\base\popovers.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\base\progress.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\base\switches.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\base\tables.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\base\tabs.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\base\tooltips.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\buttons\brand-buttons.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\buttons\buttons.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\buttons\dropdowns.component.css" />
+    <Content Include="NewsOnline.Client\src\app\views\buttons\dropdowns.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\category\category.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\chartjs\chartjs.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\dashboard\dashboard.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\error\404.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\error\500.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\icons\coreui-icons.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\icons\flags.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\icons\font-awesome.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\icons\simple-line-icons.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\login\login.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\news-details\news-details.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\news-list\news-list.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\news\news.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\notifications\alerts.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\notifications\badges.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\notifications\modals.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\publisher\publisher.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\register\register.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\theme\colors.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\theme\typography.component.html" />
+    <Content Include="NewsOnline.Client\src\app\views\widgets\widgets.component.html" />
+    <Content Include="NewsOnline.Client\src\assets\css\bootstrap.min.css" />
+    <Content Include="NewsOnline.Client\src\assets\css\font-awesome.css" />
+    <Content Include="NewsOnline.Client\src\assets\css\font-awesome.min.css" />
+    <Content Include="NewsOnline.Client\src\assets\css\owl.carousel.min.css" />
+    <Content Include="NewsOnline.Client\src\assets\css\responsive.css" />
+    <Content Include="NewsOnline.Client\src\assets\css\style.css" />
+    <Content Include="NewsOnline.Client\src\assets\favicon.ico" />
+    <Content Include="NewsOnline.Client\src\assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="NewsOnline.Client\src\assets\fonts\generator_config.txt" />
+    <Content Include="NewsOnline.Client\src\assets\fonts\Geometry_Soft_Pro-Bold_N-webfont.svg" />
+    <Content Include="NewsOnline.Client\src\assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="NewsOnline.Client\src\assets\images\1.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\2.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\3.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\4.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\appstore.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\banner-text-bg.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\banner.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\bg-img2.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\bg.jpg" />
+    <Content Include="NewsOnline.Client\src\assets\images\bg_img.jpg" />
+    <Content Include="NewsOnline.Client\src\assets\images\cloud.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\coin.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\icon1.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\icon2.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\icon3.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\icon4.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\icon5.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\icon6.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\left.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\logo-1.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\logo-2.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\logo-3.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\logo-4.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\logo.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\logo1.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\logo2.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\logo3.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\logo4.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\logo5.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\logo6.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\moniter.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\news1.jpg" />
+    <Content Include="NewsOnline.Client\src\assets\images\news2.jpg" />
+    <Content Include="NewsOnline.Client\src\assets\images\news3.jpg" />
+    <Content Include="NewsOnline.Client\src\assets\images\playstore.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\right.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\room-inner.jpg" />
+    <Content Include="NewsOnline.Client\src\assets\images\speckles.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\team1.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\team2.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\team3.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\upload.png" />
+    <Content Include="NewsOnline.Client\src\assets\images\user.png" />
+    <Content Include="NewsOnline.Client\src\assets\img\avatars\1.jpg" />
+    <Content Include="NewsOnline.Client\src\assets\img\avatars\2.jpg" />
+    <Content Include="NewsOnline.Client\src\assets\img\avatars\3.jpg" />
+    <Content Include="NewsOnline.Client\src\assets\img\avatars\4.jpg" />
+    <Content Include="NewsOnline.Client\src\assets\img\avatars\5.jpg" />
+    <Content Include="NewsOnline.Client\src\assets\img\avatars\6.jpg" />
+    <Content Include="NewsOnline.Client\src\assets\img\avatars\7.jpg" />
+    <Content Include="NewsOnline.Client\src\assets\img\avatars\8.jpg" />
+    <Content Include="NewsOnline.Client\src\assets\img\brand\logo.svg" />
+    <Content Include="NewsOnline.Client\src\assets\img\brand\sygnet.svg" />
+    <Content Include="NewsOnline.Client\src\assets\js\base.js" />
+    <Content Include="NewsOnline.Client\src\assets\js\bootstrap.js" />
+    <Content Include="NewsOnline.Client\src\assets\js\jquery.min.js" />
+    <Content Include="NewsOnline.Client\src\assets\js\scripts.js" />
+    <Content Include="NewsOnline.Client\src\assets\js\sticky.js" />
+    <Content Include="NewsOnline.Client\src\assets\js\www-embed-player.js" />
+    <Content Include="NewsOnline.Client\src\index.html" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="NewsOnline.Client\.editorconfig" />
+    <Content Include="NewsOnline.Client\angular.json" />
+    <Content Include="NewsOnline.Client\CHANGELOG.md" />
+    <Content Include="NewsOnline.Client\CONTRIBUTING.md" />
+    <Content Include="NewsOnline.Client\e2e\tsconfig.e2e.json" />
+    <Content Include="NewsOnline.Client\ISSUE_TEMPLATE.md" />
+    <Content Include="NewsOnline.Client\LICENSE" />
+    <Content Include="NewsOnline.Client\package-lock.json" />
+    <Content Include="NewsOnline.Client\package.json" />
+    <Content Include="NewsOnline.Client\README.md" />
+    <Content Include="NewsOnline.Client\src\app\views\admindashboard\admindashboard.component.scss" />
+    <Content Include="NewsOnline.Client\src\app\views\category\category.component.scss" />
+    <Content Include="NewsOnline.Client\src\app\views\news-details\news-details.component.scss" />
+    <Content Include="NewsOnline.Client\src\app\views\news-list\news-list.component.scss" />
+    <Content Include="NewsOnline.Client\src\app\views\news\news.component.scss" />
+    <Content Include="NewsOnline.Client\src\app\views\publisher\publisher.component.scss" />
+    <Content Include="NewsOnline.Client\src\assets\.gitkeep" />
+    <Content Include="NewsOnline.Client\src\assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="NewsOnline.Client\src\assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="NewsOnline.Client\src\assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="NewsOnline.Client\src\assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="NewsOnline.Client\src\assets\fonts\FontAwesome.otf" />
+    <Content Include="NewsOnline.Client\src\assets\fonts\Geometry_Soft_Pro-Bold_N-webfont.eot" />
+    <Content Include="NewsOnline.Client\src\assets\fonts\Geometry_Soft_Pro-Bold_N-webfont.woff" />
+    <Content Include="NewsOnline.Client\src\assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="NewsOnline.Client\src\assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="NewsOnline.Client\src\assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="NewsOnline.Client\src\assets\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="NewsOnline.Client\src\scss\style.scss" />
+    <Content Include="NewsOnline.Client\src\scss\vendors\chart.js\chart.scss" />
+    <Content Include="NewsOnline.Client\src\scss\vendors\_variables.scss" />
+    <Content Include="NewsOnline.Client\src\scss\_custom.scss" />
+    <Content Include="NewsOnline.Client\src\scss\_variables.scss" />
+    <Content Include="NewsOnline.Client\src\tsconfig.app.json" />
+    <Content Include="NewsOnline.Client\src\tsconfig.spec.json" />
+    <Content Include="NewsOnline.Client\tsconfig.json" />
+    <Content Include="NewsOnline.Client\tslint.json" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.min.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NewsOnline.Common\NewsOnline.Common.csproj">
+      <Project>{a0c9f02d-7bbc-4d49-95a7-94a91f503628}</Project>
+      <Name>NewsOnline.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NewsOnline.Core\NewsOnline.Core.csproj">
+      <Project>{AA418F7D-BF48-4583-A686-56F713CCAD73}</Project>
+      <Name>NewsOnline.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NewsOnline.Models\NewsOnline.Models.csproj">
+      <Project>{B9107695-ACFE-4D57-A176-C8BC7ED6D907}</Project>
+      <Name>NewsOnline.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="NewsOnline.Client\e2e\app.e2e-spec.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\e2e\app.po.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\app.component.spec.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\app.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\app.module.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\app.routing.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\containers\default-layout\default-layout.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\containers\default-layout\index.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\containers\index.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\containers\login-layout\index.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\containers\login-layout\login-layout.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\containers\news-layout\index.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\containers\news-layout\news-layout.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\admindashboard\admindashboard.component.spec.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\admindashboard\admindashboard.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\base\base-routing.module.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\base\base.module.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\base\cards.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\base\carousels.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\base\collapses.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\base\forms.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\base\paginations.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\base\popovers.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\base\progress.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\base\switches.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\base\tables.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\base\tabs.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\base\tooltips.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\buttons\brand-buttons.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\buttons\buttons-routing.module.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\buttons\buttons.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\buttons\buttons.module.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\buttons\dropdowns.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\category\category.component.spec.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\category\category.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\chartjs\chartjs-routing.module.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\chartjs\chartjs.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\chartjs\chartjs.module.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\dashboard\dashboard-routing.module.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\dashboard\dashboard.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\dashboard\dashboard.module.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\error\404.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\error\500.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\icons\coreui-icons.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\icons\flags.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\icons\font-awesome.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\icons\icons-routing.module.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\icons\icons.module.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\icons\simple-line-icons.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\login\login.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\news-details\news-details.component.spec.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\news-details\news-details.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\news-list\news-list.component.spec.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\news-list\news-list.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\news\news.component.spec.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\news\news.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\notifications\alerts.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\notifications\badges.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\notifications\modals.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\notifications\notifications-routing.module.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\notifications\notifications.module.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\publisher\publisher.component.spec.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\publisher\publisher.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\register\register.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\theme\colors.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\theme\theme-routing.module.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\theme\theme.module.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\theme\typography.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\widgets\widgets-routing.module.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\widgets\widgets.component.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\views\widgets\widgets.module.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\app\_nav.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\environments\environment.prod.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\environments\environment.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\main.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\polyfills.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\services\category.service.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\services\location.service.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\services\news.service.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\services\publisher.service.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\services\user.service.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\services\validation.service.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\test.ts" />
+    <TypeScriptCompile Include="NewsOnline.Client\src\typings.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>54852</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:54852/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,39 @@
+<div class="app-body">
+        <main class="main d-flex align-items-center">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8 mx-auto">
+                <div class="card-group">
+                  <div *ngIf="news" class="card p-4">
+                    <div class="card-body">
+                       <h2>{{news.Title}}</h2>
+                            <div class="saller-user-img">
+                                    <img src="{{news.BannerUrl}}" alt="">
+                                </div>
+                            </div>
+                        <div [innerHTML]="news.Body"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </main>
+      </div>
+<!--       
+<div class="app-body">
+    <main class="main d-flex align-items-center">
+      <div class="container">
+          <div class="row">
+              <div class="card-body">
+                  <div class="col-md-6 col-sm-6 col-xs-7">   
+                      <div class="saller-user-img">
+                          <img src="{{news.BannerUrl}}" alt="">
+                      </div>
+                  </div>
+              <div [innerHTML]="news.Body"></div>
+              </div>
+            </div>
+        </div>
+    </main>
+  
+</div> -->
