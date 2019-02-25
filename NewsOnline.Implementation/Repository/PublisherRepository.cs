@@ -20,7 +20,7 @@ namespace NewsOnline.Implementation.Repository
 		{
 			get
 			{
-				string token = HttpContext.Current.Request.Headers.GetValues("Authorization").FirstOrDefault();
+				string token = HttpContext.Current.Request.Headers.GetValues("AppSecure").FirstOrDefault();
 				return _userRepository.UserContext(token);
 			}
 		}

@@ -13,7 +13,7 @@ namespace NewsOnlineServer.Controllers
 		{
 			get
 			{
-				string token = Request.Headers.GetValues("Authorization").FirstOrDefault();
+				string token = Request.Headers.GetValues("AppSecure").FirstOrDefault();
 				return userRepository.UserContext(token);
 			}
 		}

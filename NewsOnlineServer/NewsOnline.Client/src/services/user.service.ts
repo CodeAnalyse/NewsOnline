@@ -15,14 +15,14 @@ export class UserService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Access-Control-Allow-Origin', '*');
-    headers.append('Access-Control-Allow-Methods', 'GET, POST, PUT');
-    headers.append('Authorization', this.getToken());
+    //headers.append('Access-Control-Allow-Methods', 'GET, POST, PUT');
+    headers.append('AppSecure', this.getToken());
     return headers;
   }
 
   getToken(){
     var userString = localStorage.getItem('user');
-    if(userString){
+    if(userString != null){
       var user = JSON.parse(userString);
       if(user.Token){
         return user.Token

@@ -35,7 +35,7 @@ export class LocationService {
         return this.http.get("https://api.ipify.org/?format=json");
     }
 
-    getLocationByIp(ipAddress){
-        return this.http.get("http://api.ipstack.com/"+ ipAddress +"?access_key=f5c71b9939fc8f41e5ea99cd1671235a&format=1");
-    }
+  getLocationByIp(ipAddress) {
+    return this.http.get(environment.apiUrl + "Location/GetLocation?ip=" + ipAddress);
+  }
 }

@@ -1,6 +1,7 @@
 ﻿using NewsOnline.Common;
 using NewsOnline.Core.Repository;
 using NewsOnline.Models.Model;
+using System.Collections.Generic;
 using System.Web.Http;
 
 namespace NewsOnlineServer.Controllers
@@ -34,10 +35,9 @@ namespace NewsOnlineServer.Controllers
 			}
 		}
 
-		[HttpGet]
-		public IHttpActionResult GetCategory()
+		public List<Category> GetCategory()
 		{
-			return Ok(categoryRepository.GetCategories());
+			return categoryRepository.GetCategories();
 		}
 	}
 }
