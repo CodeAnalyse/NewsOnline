@@ -36,6 +36,9 @@ export class LocationService {
     }
 
   getLocationByIp(ipAddress) {
-    return this.http.get(environment.apiUrl + "Location/GetLocation?ip=" + ipAddress);
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        headers.append('Access-Control-Allow-Origin', '*');
+		return this.http.get(environment.apiUrl + "Location/GetLocation?ip=" + ipAddress, { headers: headers });
   }
 }

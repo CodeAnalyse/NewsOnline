@@ -15,7 +15,7 @@ export class UserService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     headers.append('Access-Control-Allow-Origin', '*');
-    //headers.append('Access-Control-Allow-Methods', 'GET, POST, PUT');
+    headers.append('Access-Control-Allow-Methods', 'GET, POST, PUT');
     headers.append('AppSecure', this.getToken());
     return headers;
   }
